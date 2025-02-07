@@ -22,6 +22,7 @@
             android:layout_height="0dp"
             android:contentDescription="@string/description_image_photo"
             app:layout_constraintDimensionRatio="1:1"
+            android:background="@color/pink_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 
 interface ApiService {
-    @GET("juguetes")
+    @GET("/juguetes")
     suspend fun getJuguetes(): List<Joy>
 }
 

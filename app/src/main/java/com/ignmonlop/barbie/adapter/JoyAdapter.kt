@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.ignmonlop.barbie.JoyApplication
 import com.ignmonlop.barbie.R
 import com.ignmonlop.barbie.databinding.ItemJoyBinding
@@ -30,13 +31,13 @@ class JoyAdapter(private val onFavorite: (Joy) -> Unit) :
             binding.tvPrecio.text = "${juguete.price}€"
             Glide.with(binding.imagePhoto.context)
                 .load(juguete.imageUrl)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .placeholder(R.drawable.ic_android)
                 .into(binding.imagePhoto)
-            Log.d("imageURL", "Image URL: ${juguete.imageUrl}")
-
 
             // Verificar si el juguete está en favoritos
-            binding.cbFavorite.isChecked = JoyApplication.favoritos.contains(juguete)
+            val isFavorite = JoyApplication.favoritos.contains(juguete)
+            binding.cbFavorite.isChecked = isFavorite
 
             // Manejar clics en el checkbox
             binding.cbFavorite.setOnCheckedChangeListener { _, isChecked ->
@@ -50,6 +51,8 @@ class JoyAdapter(private val onFavorite: (Joy) -> Unit) :
         }
     }
 }
+
+
 
 class JoyDiffCallback : DiffUtil.ItemCallback<Joy>(){
     override fun areItemsTheSame(oldItem: Joy, newItem: Joy): Boolean = oldItem.id == newItem.id

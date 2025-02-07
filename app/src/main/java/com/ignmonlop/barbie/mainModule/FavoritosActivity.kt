@@ -1,14 +1,11 @@
 package com.ignmonlop.barbie.mainModule
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ignmonlop.barbie.JoyApplication
-
 import com.ignmonlop.barbie.adapter.JoyAdapter
 import com.ignmonlop.barbie.databinding.ActivityFavoritosBinding
-import com.ignmonlop.barbie.viewModels.JoyViewModel
 
 class FavoritosActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFavoritosBinding
