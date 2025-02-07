@@ -65,7 +65,7 @@ Los juguetes se obtienen desde la siguiente API: [🔗 Juguetes API](http://jugu
 ## 📜 Modelo de Datos
 
 ```kotlin
-data class Juguete(
+data class Joy(
     val id: Int,
     val name: String,
     val imageUrl: String,
@@ -79,6 +79,34 @@ data class Juguete(
 2. Habilitar `viewBinding` en `build.gradle`.
 3. Agregar `ksp` en la sección de plugins de **Gradle**.
 4. Implementar la arquitectura **MVVM** para una correcta organización del código.
+
+## 🌳 Arbol de directorios
+### Componentes
+
+- **adapters/**: Contiene los adaptadores para la visualización de los elementos.
+  - `JoyAdapter.kt`: Adapta los datos de los juguetes para la vista.
+
+- **models/**: Define los modelos de datos que se utilizan en la aplicación.
+  - `Joy.kt`: Representa un juguete con sus propiedades.
+
+- **network/**: Contiene las clases encargadas de manejar las peticiones de red.
+  - `ApiService.kt`: Define la interfaz para la API.
+  - `RetrofitClient.kt`: Configura Retrofit para las peticiones.
+
+- **viewmodels/**: Define los `ViewModel`s que gestionan los datos de la interfaz.
+  - `JoyViewModel.kt`: Administra los datos relacionados con los juguetes.
+
+- **mainModule/**: Contiene las clases principales del funcionamiento de la app.
+  - `MainActivity.kt`: La actividad principal de la aplicación.
+  - `FavoritosActivity.kt`: Actividad para mostrar los juguetes favoritos.
+- **JoyApplication.kt**: La clase principal de la aplicación.
+
+### Recursos
+
+- **res/layout/**: Contiene los archivos XML de la interfaz de usuario.
+  - `activity_main.xml`: El layout de la actividad principal.
+  - `activity_favoritos.xml`: El layout de la actividad de favoritos.
+  - `item_joy.xml`: El layout para cada elemento de la lista de juguetes.
 
 ## 📊 Evaluación y Requisitos
 
