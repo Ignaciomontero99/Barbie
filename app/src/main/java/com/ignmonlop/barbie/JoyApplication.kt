@@ -3,10 +3,10 @@ package com.ignmonlop.barbie
 import android.app.Application
 import com.ignmonlop.barbie.models.Joy
 
-class JoyApplication: Application() {
-    companion object{
-        val favoritos = mutableListOf<Joy>()
-        val todosJuguetes = mutableListOf<Joy>()
+class JoyApplication : Application() {
+    companion object {
+        var favoritos = mutableListOf<Joy>()
+        private lateinit var instance: JoyApplication // Definir la instancia de la aplicación
 
         fun agregarFavorito(juguete: Joy) {
             if (!favoritos.contains(juguete)) {
@@ -20,10 +20,6 @@ class JoyApplication: Application() {
 
         fun obtenerFavoritos(): List<Joy> {
             return favoritos
-        }
-
-        fun obtenerJuguetes(): MutableList<Joy> {
-            return todosJuguetes
         }
     }
 }
