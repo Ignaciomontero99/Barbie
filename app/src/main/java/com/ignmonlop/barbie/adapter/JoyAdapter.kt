@@ -1,10 +1,8 @@
 package com.ignmonlop.barbie.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -29,8 +27,13 @@ class JoyAdapter(private val onFavorite: (Joy) -> Unit) :
     class JoyViewHolder(private val binding: ItemJoyBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(juguete: Joy, onFavorite: (Joy) -> Unit) {
             binding.tvName.text = juguete.name
-            binding.tvPrecio.text = "$${juguete.price}"
-            Glide.with(binding.imagePhoto.context).load(juguete.imageUrl).into(binding.imagePhoto)
+            binding.tvPrecio.text = "${juguete.price}€"
+            Glide.with(binding.imagePhoto.context)
+                .load(juguete.imageUrl)
+                .placeholder(R.drawable.ic_android)
+                .into(binding.imagePhoto)
+            Log.d("imageURL", "Image URL: ${juguete.imageUrl}")
+
 
             // Verificar si el juguete está en favoritos
             binding.cbFavorite.isChecked = JoyApplication.favoritos.contains(juguete)
