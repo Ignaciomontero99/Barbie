@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Barbie</string>
+    <string name="description_image_photo">Imagen del juguete</string>
+    <string name="description_joy_favorite">Juguetes favoritos</string>
+</resources>
